@@ -7,8 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "btn1ViewController.h"
-#import "btn2ViewController.h"
+
 #import "UIButton+Action.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
@@ -124,15 +123,6 @@ NSString *implementOnlyDeclare(id class ,SEL sel,NSString * first,NSString * sec
 
 - (NSString *)newchenweidada{
     return @"newchenweidada";
-}
-- (void)btn1click{
-    btn1ViewController *vc = [[btn1ViewController alloc]init];
-    vc.btn = self.button1;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-- (void)btn2click{
-    btn2ViewController *vc = [[btn2ViewController alloc  ]init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

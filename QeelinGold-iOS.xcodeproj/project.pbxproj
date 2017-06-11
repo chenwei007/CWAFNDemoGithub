@@ -8,28 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DDCF2E5CE824D82061E4AA48 /* libPods-QeelinGold-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 126742ADCB07F0575B8EAC9D /* libPods-QeelinGold-iOS.a */; };
-		FA7467F81E97D495002DBE06 /* QeelinGold-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7467F71E97D495002DBE06 /* QeelinGold-iOS.swift */; };
-		FA7468071E97D51B002DBE06 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7468001E97D4B3002DBE06 /* Charts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FA7468231E97D5D5002DBE06 /* DateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74680A1E97D5D5002DBE06 /* DateValueFormatter.m */; };
-		FA7468241E97D5D5002DBE06 /* QLCandleStickAndBarNegativeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74680C1E97D5D5002DBE06 /* QLCandleStickAndBarNegativeView.m */; };
-		FA7468251E97D5D5002DBE06 /* QLChartsBarNegativeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74680E1E97D5D5002DBE06 /* QLChartsBarNegativeTool.m */; };
-		FA7468261E97D5D5002DBE06 /* QLChartsCandleStickCombineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7468101E97D5D5002DBE06 /* QLChartsCandleStickCombineTool.m */; };
-		FA7468281E97D5D5002DBE06 /* QLChartsCandleStickTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7468141E97D5D5002DBE06 /* QLChartsCandleStickTool.m */; };
-		FA7468291E97D5D5002DBE06 /* QLChartsDataCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7468161E97D5D5002DBE06 /* QLChartsDataCategoryView.m */; };
-		FA74682B1E97D5D5002DBE06 /* QLChartsInitializationCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74681A1E97D5D5002DBE06 /* QLChartsInitializationCategory.m */; };
-		FA74682C1E97D5D5002DBE06 /* QLChartsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74681C1E97D5D5002DBE06 /* QLChartsModel.m */; };
-		FA74682D1E97D5D5002DBE06 /* QLChartsTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74681E1E97D5D5002DBE06 /* QLChartsTool.m */; };
-		FA74682E1E97D5D5002DBE06 /* QLChartsViews.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7468201E97D5D5002DBE06 /* QLChartsViews.m */; };
-		FA74682F1E97D5D5002DBE06 /* SetValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7468221E97D5D5002DBE06 /* SetValueFormatter.m */; };
-		FA7468321E97D821002DBE06 /* btn1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7468311E97D821002DBE06 /* btn1ViewController.m */; };
-		FA7468351E97D82F002DBE06 /* btn2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7468341E97D82F002DBE06 /* btn2ViewController.m */; };
 		FA74683C1E97E245002DBE06 /* UIColor+Simple.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74683B1E97E245002DBE06 /* UIColor+Simple.m */; };
 		FA7468421E97E26E002DBE06 /* colorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7468411E97E26E002DBE06 /* colorModel.m */; };
-		FA85C5BA1E97E4A400C08A09 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7468431E97E401002DBE06 /* BalloonMarker.swift */; };
 		FA85C5C81E97FA0E00C08A09 /* Documentsline.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA85C5C61E97FA0E00C08A09 /* Documentsline.plist */; };
 		FA85C5CA1E97FBDA00C08A09 /* Documentscome.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA85C5C91E97FBDA00C08A09 /* Documentscome.plist */; };
-		FA85C5CB1E98018E00C08A09 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7468001E97D4B3002DBE06 /* Charts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FA85C5CC1E98018E00C08A09 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA7468001E97D4B3002DBE06 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA955A651E9652E800762DA4 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA955A641E9652E800762DA4 /* AdSupport.framework */; };
 		FA9E4D2B1EBC4FD800780CE9 /* UIButton+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9E4D2A1EBC4FD800780CE9 /* UIButton+Action.m */; };
 		FAD012A61E9492EE0088B2D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD012A51E9492EE0088B2D9 /* main.m */; };
@@ -47,34 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FA7467FF1E97D4B3002DBE06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA7467F91E97D4B2002DBE06 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06165F241D8110E600722320;
-			remoteInfo = Charts;
-		};
-		FA7468011E97D4B3002DBE06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA7467F91E97D4B2002DBE06 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06B120D51D811E6200D14B02;
-			remoteInfo = ChartsRealm;
-		};
-		FA7468031E97D4B3002DBE06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA7467F91E97D4B2002DBE06 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06165F2E1D8110E600722320;
-			remoteInfo = ChartsTests;
-		};
-		FA85C5CD1E98018E00C08A09 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA7467F91E97D4B2002DBE06 /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 06165F231D8110E600722320;
-			remoteInfo = Charts;
-		};
 		FAD012BB1E9492EE0088B2D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAD012991E9492EE0088B2D9 /* Project object */;
@@ -98,7 +52,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FA85C5CC1E98018E00C08A09 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,39 +63,10 @@
 		204C3D51BEE4B0CB673C71CF /* Pods-QeelinGold-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QeelinGold-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-QeelinGold-iOS/Pods-QeelinGold-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		7959097B9FFD33637BB39E10 /* Pods-QeelinGold-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QeelinGold-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QeelinGold-iOS/Pods-QeelinGold-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		FA7467F61E97D494002DBE06 /* QeelinGold-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QeelinGold-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		FA7467F71E97D495002DBE06 /* QeelinGold-iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QeelinGold-iOS.swift"; sourceTree = "<group>"; };
-		FA7467F91E97D4B2002DBE06 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-3.0.1/Charts.xcodeproj"; sourceTree = "<group>"; };
-		FA7468091E97D5D5002DBE06 /* DateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateValueFormatter.h; sourceTree = "<group>"; };
-		FA74680A1E97D5D5002DBE06 /* DateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateValueFormatter.m; sourceTree = "<group>"; };
-		FA74680B1E97D5D5002DBE06 /* QLCandleStickAndBarNegativeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLCandleStickAndBarNegativeView.h; sourceTree = "<group>"; };
-		FA74680C1E97D5D5002DBE06 /* QLCandleStickAndBarNegativeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLCandleStickAndBarNegativeView.m; sourceTree = "<group>"; };
-		FA74680D1E97D5D5002DBE06 /* QLChartsBarNegativeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChartsBarNegativeTool.h; sourceTree = "<group>"; };
-		FA74680E1E97D5D5002DBE06 /* QLChartsBarNegativeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChartsBarNegativeTool.m; sourceTree = "<group>"; };
-		FA74680F1E97D5D5002DBE06 /* QLChartsCandleStickCombineTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChartsCandleStickCombineTool.h; sourceTree = "<group>"; };
-		FA7468101E97D5D5002DBE06 /* QLChartsCandleStickCombineTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChartsCandleStickCombineTool.m; sourceTree = "<group>"; };
-		FA7468131E97D5D5002DBE06 /* QLChartsCandleStickTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChartsCandleStickTool.h; sourceTree = "<group>"; };
-		FA7468141E97D5D5002DBE06 /* QLChartsCandleStickTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChartsCandleStickTool.m; sourceTree = "<group>"; };
-		FA7468151E97D5D5002DBE06 /* QLChartsDataCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChartsDataCategoryView.h; sourceTree = "<group>"; };
-		FA7468161E97D5D5002DBE06 /* QLChartsDataCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChartsDataCategoryView.m; sourceTree = "<group>"; };
-		FA7468191E97D5D5002DBE06 /* QLChartsInitializationCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChartsInitializationCategory.h; sourceTree = "<group>"; };
-		FA74681A1E97D5D5002DBE06 /* QLChartsInitializationCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChartsInitializationCategory.m; sourceTree = "<group>"; };
-		FA74681B1E97D5D5002DBE06 /* QLChartsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChartsModel.h; sourceTree = "<group>"; };
-		FA74681C1E97D5D5002DBE06 /* QLChartsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChartsModel.m; sourceTree = "<group>"; };
-		FA74681D1E97D5D5002DBE06 /* QLChartsTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChartsTool.h; sourceTree = "<group>"; };
-		FA74681E1E97D5D5002DBE06 /* QLChartsTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChartsTool.m; sourceTree = "<group>"; };
-		FA74681F1E97D5D5002DBE06 /* QLChartsViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChartsViews.h; sourceTree = "<group>"; };
-		FA7468201E97D5D5002DBE06 /* QLChartsViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChartsViews.m; sourceTree = "<group>"; };
-		FA7468211E97D5D5002DBE06 /* SetValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetValueFormatter.h; sourceTree = "<group>"; };
-		FA7468221E97D5D5002DBE06 /* SetValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetValueFormatter.m; sourceTree = "<group>"; };
-		FA7468301E97D821002DBE06 /* btn1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btn1ViewController.h; sourceTree = "<group>"; };
-		FA7468311E97D821002DBE06 /* btn1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = btn1ViewController.m; sourceTree = "<group>"; };
-		FA7468331E97D82F002DBE06 /* btn2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btn2ViewController.h; sourceTree = "<group>"; };
-		FA7468341E97D82F002DBE06 /* btn2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = btn2ViewController.m; sourceTree = "<group>"; };
 		FA74683A1E97E245002DBE06 /* UIColor+Simple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Simple.h"; sourceTree = "<group>"; };
 		FA74683B1E97E245002DBE06 /* UIColor+Simple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Simple.m"; sourceTree = "<group>"; };
 		FA7468401E97E26E002DBE06 /* colorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorModel.h; sourceTree = "<group>"; };
 		FA7468411E97E26E002DBE06 /* colorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorModel.m; sourceTree = "<group>"; };
-		FA7468431E97E401002DBE06 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		FA85C5C61E97FA0E00C08A09 /* Documentsline.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Documentsline.plist; sourceTree = "<group>"; };
 		FA85C5C91E97FBDA00C08A09 /* Documentscome.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Documentscome.plist; sourceTree = "<group>"; };
 		FA955A621E964B4800762DA4 /* QeelinGold-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QeelinGold-iOS-Prefix.pch"; sourceTree = "<group>"; };
@@ -182,8 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7468071E97D51B002DBE06 /* Charts.framework in Frameworks */,
-				FA85C5CB1E98018E00C08A09 /* Charts.framework in Frameworks */,
 				FA955A651E9652E800762DA4 /* AdSupport.framework in Frameworks */,
 				DDCF2E5CE824D82061E4AA48 /* libPods-QeelinGold-iOS.a in Frameworks */,
 			);
@@ -224,49 +146,9 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FA7467FA1E97D4B2002DBE06 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FA7468001E97D4B3002DBE06 /* Charts.framework */,
-				FA7468021E97D4B3002DBE06 /* ChartsRealm.framework */,
-				FA7468041E97D4B3002DBE06 /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FA7468081E97D5D5002DBE06 /* chartsTool */ = {
-			isa = PBXGroup;
-			children = (
-				FA7468091E97D5D5002DBE06 /* DateValueFormatter.h */,
-				FA74680A1E97D5D5002DBE06 /* DateValueFormatter.m */,
-				FA74680B1E97D5D5002DBE06 /* QLCandleStickAndBarNegativeView.h */,
-				FA74680C1E97D5D5002DBE06 /* QLCandleStickAndBarNegativeView.m */,
-				FA74680D1E97D5D5002DBE06 /* QLChartsBarNegativeTool.h */,
-				FA74680E1E97D5D5002DBE06 /* QLChartsBarNegativeTool.m */,
-				FA74680F1E97D5D5002DBE06 /* QLChartsCandleStickCombineTool.h */,
-				FA7468101E97D5D5002DBE06 /* QLChartsCandleStickCombineTool.m */,
-				FA7468131E97D5D5002DBE06 /* QLChartsCandleStickTool.h */,
-				FA7468141E97D5D5002DBE06 /* QLChartsCandleStickTool.m */,
-				FA7468151E97D5D5002DBE06 /* QLChartsDataCategoryView.h */,
-				FA7468161E97D5D5002DBE06 /* QLChartsDataCategoryView.m */,
-				FA7468191E97D5D5002DBE06 /* QLChartsInitializationCategory.h */,
-				FA74681A1E97D5D5002DBE06 /* QLChartsInitializationCategory.m */,
-				FA74681B1E97D5D5002DBE06 /* QLChartsModel.h */,
-				FA74681C1E97D5D5002DBE06 /* QLChartsModel.m */,
-				FA74681D1E97D5D5002DBE06 /* QLChartsTool.h */,
-				FA74681E1E97D5D5002DBE06 /* QLChartsTool.m */,
-				FA74681F1E97D5D5002DBE06 /* QLChartsViews.h */,
-				FA7468201E97D5D5002DBE06 /* QLChartsViews.m */,
-				FA7468211E97D5D5002DBE06 /* SetValueFormatter.h */,
-				FA7468221E97D5D5002DBE06 /* SetValueFormatter.m */,
-			);
-			path = chartsTool;
-			sourceTree = "<group>";
-		};
 		FAD012981E9492EE0088B2D9 = {
 			isa = PBXGroup;
 			children = (
-				FA7468431E97E401002DBE06 /* BalloonMarker.swift */,
 				FAD012A31E9492EE0088B2D9 /* QeelinGold-iOS */,
 				FAD012BD1E9492EE0088B2D9 /* QeelinGold-iOSTests */,
 				FAD012C81E9492EE0088B2D9 /* QeelinGold-iOSUITests */,
@@ -294,19 +176,12 @@
 				FA7468411E97E26E002DBE06 /* colorModel.m */,
 				FA74683A1E97E245002DBE06 /* UIColor+Simple.h */,
 				FA74683B1E97E245002DBE06 /* UIColor+Simple.m */,
-				FA7468081E97D5D5002DBE06 /* chartsTool */,
-				FA7467F91E97D4B2002DBE06 /* Charts.xcodeproj */,
 				FAD012AA1E9492EE0088B2D9 /* ViewController.h */,
 				FAD012AB1E9492EE0088B2D9 /* ViewController.m */,
 				FAD012AD1E9492EE0088B2D9 /* Main.storyboard */,
 				FAD012B21E9492EE0088B2D9 /* LaunchScreen.storyboard */,
 				FAD012A41E9492EE0088B2D9 /* Supporting Files */,
-				FA7467F71E97D495002DBE06 /* QeelinGold-iOS.swift */,
 				FA7467F61E97D494002DBE06 /* QeelinGold-iOS-Bridging-Header.h */,
-				FA7468301E97D821002DBE06 /* btn1ViewController.h */,
-				FA7468311E97D821002DBE06 /* btn1ViewController.m */,
-				FA7468331E97D82F002DBE06 /* btn2ViewController.h */,
-				FA7468341E97D82F002DBE06 /* btn2ViewController.m */,
 				FA9E4D291EBC4FD800780CE9 /* UIButton+Action.h */,
 				FA9E4D2A1EBC4FD800780CE9 /* UIButton+Action.m */,
 			);
@@ -389,7 +264,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				FA85C5CE1E98018E00C08A09 /* PBXTargetDependency */,
 			);
 			name = "QeelinGold-iOS";
 			productName = "QeelinGold-iOS";
@@ -472,12 +346,6 @@
 			mainGroup = FAD012981E9492EE0088B2D9;
 			productRefGroup = FAD012A21E9492EE0088B2D9 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FA7467FA1E97D4B2002DBE06 /* Products */;
-					ProjectRef = FA7467F91E97D4B2002DBE06 /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FAD012A01E9492EE0088B2D9 /* QeelinGold-iOS */,
@@ -486,30 +354,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FA7468001E97D4B3002DBE06 /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = FA7467FF1E97D4B3002DBE06 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FA7468021E97D4B3002DBE06 /* ChartsRealm.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ChartsRealm.framework;
-			remoteRef = FA7468011E97D4B3002DBE06 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FA7468041E97D4B3002DBE06 /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = FA7468031E97D4B3002DBE06 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FAD0129F1E9492EE0088B2D9 /* Resources */ = {
@@ -593,31 +437,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA85C5BA1E97E4A400C08A09 /* BalloonMarker.swift in Sources */,
 				FAD012AC1E9492EE0088B2D9 /* ViewController.m in Sources */,
 				FA74683C1E97E245002DBE06 /* UIColor+Simple.m in Sources */,
-				FA7468281E97D5D5002DBE06 /* QLChartsCandleStickTool.m in Sources */,
-				FA7468321E97D821002DBE06 /* btn1ViewController.m in Sources */,
 				FAD012A91E9492EE0088B2D9 /* AppDelegate.m in Sources */,
-				FA7468241E97D5D5002DBE06 /* QLCandleStickAndBarNegativeView.m in Sources */,
 				FAFA73DD1ECC60AE00268E71 /* DQRequestItem.m in Sources */,
 				FAFA73DB1ECC60AE00268E71 /* DQRequestCenter.m in Sources */,
-				FA74682D1E97D5D5002DBE06 /* QLChartsTool.m in Sources */,
 				FAFA73DC1ECC60AE00268E71 /* DQRequestEngine.m in Sources */,
-				FA7467F81E97D495002DBE06 /* QeelinGold-iOS.swift in Sources */,
-				FA7468231E97D5D5002DBE06 /* DateValueFormatter.m in Sources */,
-				FA7468351E97D82F002DBE06 /* btn2ViewController.m in Sources */,
-				FA74682C1E97D5D5002DBE06 /* QLChartsModel.m in Sources */,
 				FA9E4D2B1EBC4FD800780CE9 /* UIButton+Action.m in Sources */,
-				FA7468291E97D5D5002DBE06 /* QLChartsDataCategoryView.m in Sources */,
 				FA7468421E97E26E002DBE06 /* colorModel.m in Sources */,
-				FA74682F1E97D5D5002DBE06 /* SetValueFormatter.m in Sources */,
-				FA74682E1E97D5D5002DBE06 /* QLChartsViews.m in Sources */,
-				FA7468261E97D5D5002DBE06 /* QLChartsCandleStickCombineTool.m in Sources */,
-				FA7468251E97D5D5002DBE06 /* QLChartsBarNegativeTool.m in Sources */,
 				FAFA73DE1ECC60AE00268E71 /* Reachability.m in Sources */,
 				FAD012A61E9492EE0088B2D9 /* main.m in Sources */,
-				FA74682B1E97D5D5002DBE06 /* QLChartsInitializationCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,11 +469,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FA85C5CE1E98018E00C08A09 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = FA85C5CD1E98018E00C08A09 /* PBXContainerItemProxy */;
-		};
 		FAD012BC1E9492EE0088B2D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FAD012A01E9492EE0088B2D9 /* QeelinGold-iOS */;
@@ -819,7 +643,6 @@
 		FAD012D21E9492EE0088B2D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 86K8SMY2J9;
 				INFOPLIST_FILE = "QeelinGold-iOSTests/Info.plist";
@@ -833,7 +656,6 @@
 		FAD012D31E9492EE0088B2D9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 86K8SMY2J9;
 				INFOPLIST_FILE = "QeelinGold-iOSTests/Info.plist";
@@ -847,7 +669,6 @@
 		FAD012D51E9492EE0088B2D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 86K8SMY2J9;
 				INFOPLIST_FILE = "QeelinGold-iOSUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -860,7 +681,6 @@
 		FAD012D61E9492EE0088B2D9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 86K8SMY2J9;
 				INFOPLIST_FILE = "QeelinGold-iOSUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
