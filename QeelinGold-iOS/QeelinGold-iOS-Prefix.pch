@@ -1,0 +1,35 @@
+//
+//  QeelinGold-iOS-Prefix.pch
+//  QeelinGold-iOS
+//
+//  Created by MacBook on 2017/4/6.
+//  Copyright © 2017年 chen. All rights reserved.
+//
+
+#ifndef QeelinGold_iOS_Prefix_pch
+#define QeelinGold_iOS_Prefix_pch
+
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define PTTLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else // 发布状态, 关闭LOG功能
+#define PTTLog(...)
+#endif
+
+#import <AdSupport/ASIdentifierManager.h>
+#import "UIColor+Simple.h"
+#import "Masonry.h"
+
+#define color_new_dark [UIColor colorWithHexString:@"3d3e42"]
+#define font_new_tabbar [UIFont systemFontOfSize:10];
+#define color_font_46b97c [UIColor colorWithHexString:@"46b97c"]
+#define color_red_ff5353 [UIColor colorWithHexString:@"ff5353"]
+#define color_font_757980 [UIColor colorWithHexString:@"666666"]
+#define color_gray_e2e6eb [UIColor colorWithHexString:@"e2e6eb"]
+#define color_background_f1f5f8 [UIColor colorWithHexString:@"f1f5f8"]
+#define mark_BackgroundColor [UIColor colorWithRed:27.0f/255.0f green:48.0f/255.0f blue:67.0f/255.0f alpha:0.8f]
+#define ChartsCombineColorOne [UIColor colorWithRed:230/255.f green:178/255.f blue:87/255.f alpha:1.f]
+#define ChartsCombineColorTwo [UIColor colorWithRed:110/255.f green:190/255.f blue:102/255.f alpha:1.f]
+#define ChartsCombineColorThree color_font_757980
+#define ChartsCombineColorRed [UIColor colorWithRed:211/255.f green:74/255.f blue:88/255.f alpha:1.f]
+#define font_new_littleTitle [UIFont systemFontOfSize:15]
+#endif /* QeelinGold_iOS_Prefix_pch */
