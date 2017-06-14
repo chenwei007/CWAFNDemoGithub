@@ -22,6 +22,7 @@
     //第一,设置服务器配置地址和公共参数（也可以在DQRequestCenter中设置）
     [DQRequestCenter setupConfig:^(DQRequestConfig * _Nonnull config) {
         // 服务器地址
+        config.callbackQueue = dispatch_get_main_queue();
         config.generalServer = @"http://www.baidu/"; //此处大家自己弄一下服务器地址
                 config.generalParameters = @{
                                              // 不会发生变化的公共参数
@@ -36,97 +37,43 @@
         item.api = @"system/getNoticeList.do";
         item.requestInterval = 5; //间隔
         item.retryCount = 3; //重复请求的次数
-    } onSuccess:^(id  _Nullable responseObject) {
+    } onSuccess:^(id  _Nullable responseObject, BOOL isNormalData) {
+        if (isNormalData) {//请求成功，有数据返回
+            
+        }else{//请求成功，如token过期等情况，可以在这里做单一处理，也可以在框架里做统一处理
+            
+        }
         PTTLog(@"success = %@",responseObject);
     } onFailure:^(NSError * _Nullable error) {
-        PTTLog(@"success = %@",error);
-    } onFinished:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        //不论成功或失败都会,如果成功error = nil 如果失败responseObject = nil
-        PTTLog(@"success = %@---%@",responseObject,error);
+        PTTLog(@"error = %@",error);
     }];
     
     // 第三种，取消已经发送的网络请求
     NSString *identifier = [DQRequestCenter sendRequest:^(DQRequestItem * _Nonnull item) {
         item.api = @"system/getNoticeList.do";
-    } onSuccess:^(id  _Nullable responseObject) {
+    } onSuccess:^(id  _Nullable responseObject, BOOL isNormalData) {
         PTTLog(@"success = %@",responseObject);
     } onFailure:^(NSError * _Nullable error) {
-        PTTLog(@"success = %@",error);
-    } onFinished:^(id  _Nullable responseObject, NSError * _Nullable error) {
-        //不论成功或失败都会,如果成功error = nil 如果失败responseObject = nil
-        PTTLog(@"success = %@---%@",responseObject,error);
+        PTTLog(@"error = %@",error);
     }];
     [DQRequestCenter cancelRequest:identifier onCancel:^{
         //取消完成后
     }];
 
+    //第四，由于请求都是进行异步操作的队列，当对返回的数据要进行页面刷新操作，请求设置 config.callbackQueue = dispatch_get_main_queue();
+    // 或者直接在 
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //执行ui界面更新
+    });
+    
+    //第五，如果有需要对定时请求做取消操作，需要大家自己去用数组保存 identifier，在通过identifier取消发起请求前的所有请求
+    //第六，对于DQSuccessBlock的block增加了一个 isNormalData，此参数是为了区分token过期，登录失败等特殊情况的。
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor redColor];
     
     [self netWorkCeshi];
-    
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn1.frame = CGRectMake(10, 200, 100, 40);
-    btn1.backgroundColor = [UIColor  blackColor];
-    [btn1 setTitle:@"图表1" forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(btn1click) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn1];
-    
-    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn2.frame = CGRectMake(10, 250, 100, 40);
-    [btn2 setTitle:@"图表2" forState:UIControlStateNormal];
-    btn2.backgroundColor = [UIColor blackColor];
-    [btn2 addTarget:self action:@selector(btn2click) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn2];
-    
-    //第一个按钮
-    UIButton *button1 = [UIButton createBtnWithFrame:CGRectMake(10, 300, 100, 50) title:@"按钮" actionBlock:^(UIButton *button) {
-        float r = random()%255/255.0;
-        float g = random()%255/255.0;
-        float b = random()%255/255.0;
-        self.view.backgroundColor = [UIColor blueColor];
-        PTTLog(@"hhhhhh");
-    }];
-    self.button1 = button1;
-    button1.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:button1];
-    button1.myCode = @"chenweidada";
-//    NSLog(@"myCode = %@",button1.myCode);
-    NSString *str = [button1 chenweidada];
-//    NSLog(@"str = %@",str);
-    Method  oriMethod = class_getInstanceMethod([UIButton class], @selector(chenweidada));
-    Method  newMethod = class_getInstanceMethod([self class], @selector(newchenweidada));
-    method_exchangeImplementations(oriMethod, newMethod);
-    NSString *newstr = [button1 chenweidada];
-//    NSLog(@"newstr = %@",newstr);
-    //第二个按钮
-    UIButton *button2 = [UIButton createBtnWithFrame:CGRectMake(10, CGRectGetMaxY(button1.frame) + 50, 100, 50) title:@"按钮2" actionBlock:nil];
-    button2.actionBlock = ^(UIButton *button){
-//        NSLog(@"---%@---",button.currentTitle);
-    };
-    button2.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:button2];
-    
-    ((void (*)(id,SEL)) objc_msgSend)(button1,@selector(sendMyMethod));
-    
-    class_addMethod([UIButton class], @selector(onlyDeclareMethod: andWithSec:), (IMP)implementOnlyDeclare, "@@:@@");
-    
-    [button1 onlyDeclareMethod:@"chenwei" andWithSec:@"hehe"];
-}
-NSString *implementOnlyDeclare(id class ,SEL sel,NSString * first,NSString * second)
-{
-//    NSLog(@"%@",[NSString stringWithFormat:@"在resolveInstanceMethod中通过addMethod方法实现方法:%@+%@",first,second]);
-    return [NSString stringWithFormat:@"在resolveInstanceMethod中通过addMethod方法实现方法:%@+%@",first,second];
-}
-
-- (NSString *)newchenweidada{
-    return @"newchenweidada";
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

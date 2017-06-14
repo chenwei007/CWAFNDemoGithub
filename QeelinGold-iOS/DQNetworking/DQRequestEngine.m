@@ -142,36 +142,75 @@ static NSString * const kDQRequestBindingKey = @"kDQRequestBindingKey";
 
 - (void)dataTaskWithRequest:(DQRequestItem *)item completionHandler:(DQCompletionHandler)completionHandler
 {
+    //这一块废弃了，这里的处理afn的3.0版本已经帮我们处理了
+//    NSString *httpMethod = (item.httpMethod == kDQHTTPMethodPOST) ? @"POST" : @"GET";
+//    AFHTTPRequestSerializer *requestSerializer = [self getRequestSerializer:item];
+//    NSError *serializationError = nil;
+//    // 拼接参数后，得到NSMutableURLRequest，用以网络请求
+//    NSMutableURLRequest *urlRequest = [requestSerializer requestWithMethod:httpMethod URLString:item.url parameters:item.parameters error:&serializationError];
+//    PTTLog(@"urlRequest = %@",urlRequest);
+//    if (serializationError) {
+//        if (completionHandler) {
+//            dispatch_async(request_Completion_Callback_Queue(), ^{
+//                completionHandler(nil, serializationError);
+//            });
+//        }
+//        return;
+//    }
+//    urlRequest.timeoutInterval = item.timeoutInterval;
+//    NSURLSessionDataTask *dataTask = nil;
+//    __weak __typeof(self)weakSelf = self;
+//    // 进行网络请求
+//    dataTask = [self.sessionManager dataTaskWithRequest:urlRequest completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//        __strong __typeof(weakSelf)strongSelf = weakSelf;
+//        // 对返回的结果做处理
+//        [strongSelf processResponse:response object:responseObject error:error requestItem:item completionHandler:completionHandler];
+//    }];
+//    //获取一个网络请求的管理者 dataTask，一次网络请求的信息都在这里
+//    NSString *identifier = [NSString stringWithFormat:@"%lu",(unsigned long)dataTask.taskIdentifier];
+//    [item setValue:identifier forKey:@"_identifier"];
+//    [dataTask bindingRequestItem:item];
+//    [dataTask resume];
     
-    NSString *httpMethod = (item.httpMethod == kDQHTTPMethodPOST) ? @"POST" : @"GET";
-    AFHTTPRequestSerializer *requestSerializer = [self getRequestSerializer:item];
-    NSError *serializationError = nil;
-    // 拼接参数后，得到NSMutableURLRequest，用以网络请求
-    NSMutableURLRequest *urlRequest = [requestSerializer requestWithMethod:httpMethod URLString:item.url parameters:item.parameters error:&serializationError];
-    if (serializationError) {
-        if (completionHandler) {
-            dispatch_async(request_Completion_Callback_Queue(), ^{
-                completionHandler(nil, serializationError);
-            });
-        }
-        return;
-    }
-    urlRequest.timeoutInterval = item.timeoutInterval;
     NSURLSessionDataTask *dataTask = nil;
-    __weak __typeof(self)weakSelf = self;
-    // 进行网络请求
-    dataTask = [self.sessionManager dataTaskWithRequest:urlRequest completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        // 对返回的结果做处理
-        [strongSelf processResponse:response object:responseObject error:error requestItem:item completionHandler:completionHandler];
-    }];
+     //进行网络请求
+    PTTLog(@"发送了一次请求");
+    if (item.httpMethod == kDQHTTPMethodGET) {
+        dataTask = [self.sessionManager GET:item.url parameters:item.parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            dispatch_async(request_Completion_Callback_Queue(), ^{
+                completionHandler(responseObject, nil);
+            });
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            dispatch_async(request_Completion_Callback_Queue(), ^{
+                completionHandler(nil, error);
+            });
+        }];
+    }else if (item.httpMethod == kDQHTTPMethodPOST){
+        dataTask = [self.sessionManager POST:item.url parameters:item.parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            dispatch_async(request_Completion_Callback_Queue(), ^{
+                completionHandler(responseObject, nil);
+            });
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            dispatch_async(request_Completion_Callback_Queue(), ^{
+                completionHandler(nil, error);
+            });
+        }];
+    }else if (item.httpMethod == kDQHTTPMethodPUT){
+        dataTask = [self.sessionManager PUT:item.url parameters:item.parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            dispatch_async(request_Completion_Callback_Queue(), ^{
+                completionHandler(responseObject, nil);
+            });
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            dispatch_async(request_Completion_Callback_Queue(), ^{
+                completionHandler(nil, error);
+            });
+        }];
+    }
     //获取一个网络请求的管理者 dataTask，一次网络请求的信息都在这里
     NSString *identifier = [NSString stringWithFormat:@"%lu",(unsigned long)dataTask.taskIdentifier];
     [item setValue:identifier forKey:@"_identifier"];
     [dataTask bindingRequestItem:item];
-    [dataTask resume];
 }
-
 
 - (void)processResponse:(NSURLResponse *)response object:(id)responseObject error:(NSError *)error requestItem:(DQRequestItem *)item completionHandler:(DQCompletionHandler)completionHandler {
     AFHTTPResponseSerializer *responseSerializer = [self getResponseSerializer:item];

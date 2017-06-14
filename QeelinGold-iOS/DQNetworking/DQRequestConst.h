@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, DQHTTPMethodType) {
     kDQHTTPMethodGET    = 0,    // GET
     kDQHTTPMethodPOST   = 1,    // POST
+    kDQHTTPMethodPUT   = 2,    // PUT
 };
 
 typedef NS_ENUM(NSInteger, DQRequestSerializerType) {
@@ -43,7 +44,7 @@ NS_ENUM(NSInteger)
 };
     
 typedef void (^DQConfigItemBlock)(DQRequestItem *item);
-typedef void (^DQSuccessBlock)(id _Nullable responseObject);
+typedef void (^DQSuccessBlock)(id _Nullable responseObject,BOOL isNormalData);
 typedef void (^DQFailureBlock)(NSError * _Nullable error);
 typedef void (^DQFinishedBlock)(id _Nullable responseObject, NSError * _Nullable error);
 typedef void (^DQCancelBlock)();

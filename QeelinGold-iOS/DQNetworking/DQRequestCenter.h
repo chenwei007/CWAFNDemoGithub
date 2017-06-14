@@ -21,21 +21,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)setupConfig:(void(^)(DQRequestConfig *config))configBlock;
 
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock;
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onSuccess:(DQSuccessBlock)successBlock;
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onFailure:(DQFailureBlock)failureBlock;
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onFinished:(DQFinishedBlock)finishedBlock;
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onSuccess:(nullable DQSuccessBlock)successBlock onFailure:(nullable DQFailureBlock)failureBlock;
+
 /**
  发送请求的方法
-
+ 
  @param configBlock 配置请求的item
  @param successBlock 成功回调
  @param failureBlock 失败回调
- @param finishedBlock 无论成功或失败,完成的回调
  @return 请求的task的表示符,可以用来取消
  */
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onSuccess:(nullable DQSuccessBlock)successBlock onFailure:(nullable DQFailureBlock)failureBlock onFinished:(DQFinishedBlock)finishedBlock;
++ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onSuccess:(DQSuccessBlock)successBlock onFailure:(nullable DQFailureBlock)failureBlock;
+
 /**
  取消一个请求
  @param identifier 发送请求时返回的标识符

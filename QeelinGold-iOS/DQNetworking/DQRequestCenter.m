@@ -27,34 +27,11 @@ NSString *const DQ_HTTP_DOMAIN = @"douqu.httpServer.host";
 
 @implementation DQRequestCenter
 
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock
-{
-    return [[DQRequestCenter defaultCenter] sendRequest:configBlock onSuccess:NULL onFailure:NULL onFinished:NULL];
-}
-
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onSuccess:(DQSuccessBlock)successBlock
-{
-    return [[DQRequestCenter defaultCenter] sendRequest:configBlock onSuccess:successBlock onFailure:NULL onFinished:NULL];
-}
-
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onFailure:(DQFailureBlock)failureBlock
-{
-    return [[DQRequestCenter defaultCenter] sendRequest:configBlock onSuccess:NULL onFailure:failureBlock onFinished:NULL];
-}
-
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onFinished:(DQFinishedBlock)finishedBlock
-{
-    return [[DQRequestCenter defaultCenter] sendRequest:configBlock onSuccess:NULL onFailure:NULL onFinished:finishedBlock];
-}
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onSuccess:(nullable DQSuccessBlock)successBlock onFailure:(DQFailureBlock)failureBlock
++ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onSuccess:(DQSuccessBlock)successBlock onFailure:(DQFailureBlock)failureBlock
 {
     return [[DQRequestCenter defaultCenter] sendRequest:configBlock onSuccess:successBlock onFailure:failureBlock onFinished:NULL];
 }
 
-+ (nullable NSString *)sendRequest:(DQConfigItemBlock)configBlock onSuccess:(nullable DQSuccessBlock)successBlock onFailure:(nullable DQFailureBlock)failureBlock onFinished:(DQFinishedBlock)finishedBlock
-{
-    return [[DQRequestCenter defaultCenter] sendRequest:configBlock onSuccess:successBlock onFailure:failureBlock onFinished:finishedBlock];
-}
 
 /**
  给config设置参数（属于公共部分的参数）
@@ -123,11 +100,11 @@ NSString *const DQ_HTTP_DOMAIN = @"douqu.httpServer.host";
 {
     self.requestConfig.generalServer = API_Public_Link;
     self.requestConfig.generalParameters = @{
-                                         @"channel":kUa,
-                                         @"osVersion":kCurrentSystemVersion,
-                                         @"version":kCurrentAppVersion,
-                                         @"imei":IDFA_String,
+                                         @"ua":kUa,
+//                                         @"version":kCurrentAppVersion,
+//                                         @"imei":IDFA_String,
                                          };
+    self.requestConfig.callbackQueue = dispatch_get_main_queue();
     DQRequestItem *requestItem = [DQRequestItem requestItem];
     DQ_SAFE_BLOCK(configBlock,requestItem);
     __block NSString *identifier;
@@ -165,14 +142,12 @@ NSString *const DQ_HTTP_DOMAIN = @"douqu.httpServer.host";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(nextRequestTime * NSEC_PER_SEC)),dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [self sendRequestItem:requestItem];
         });
-        PTTLog(@"no频繁的发送同一个请求");
         return isAllow;
     }
-    NSNumber *limitTime = @(currentTime + requestItem.requestInterval);
+    NSNumber *limitTime = @(currentTime + requestItem.requestInterval * 1000);
     DQSelfLock();
     [self.requestTimestampPool setObject:limitTime forKey:requestItem.api];
     DQSelfUnlock();
-    PTTLog(@"yes频繁的发送同一个请求");
     return isAllow = YES;
 }
 
@@ -206,8 +181,12 @@ NSString *const DQ_HTTP_DOMAIN = @"douqu.httpServer.host";
     if (kStringIsEmpty(requestItem.separateServer)) {
         requestItem.separateServer = self.requestConfig.generalServer;
     }
-    NSString *url = [NSString stringWithFormat:@"%@%@",requestItem.separateServer,requestItem.api];
-    NSLog(@"路径 = %@",url);
+    NSString *url;
+    if ([requestItem.api isEqualToString:@"ctrade/system/getFinanceCalenders.do?sysver=10.30&appsver=1.5.8&ua=ios&idfa=6C386E65-1C9F-42EB-ABBD-36009391ABF7"]) {
+        url = [NSString stringWithFormat:@"%@%@",@"http://www.qilin99.com/",requestItem.api];
+    }else{
+        url = [NSString stringWithFormat:@"%@%@",requestItem.separateServer,requestItem.api];
+    }
     [requestItem setValue:url forKey:@"_url"];
 }
 
@@ -262,27 +241,27 @@ NSString *const DQ_HTTP_DOMAIN = @"douqu.httpServer.host";
 
 - (void)execureSuccessBlockWithResponse:(id)responseObject forRequest:(DQRequestItem *)requestItem
 {
+    PTTLog(@"请求成功");
     id result = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
-    [self specialSuccessResultsOnTheReturn:result];
-    DQ_SAFE_BLOCK(requestItem.successBlock,result);
+    DQ_SAFE_BLOCK(requestItem.successBlock,result,YES);
     DQ_SAFE_BLOCK(requestItem.finishedBlcok,result,nil);
     [requestItem cleanCallbackBlocks];
-}
-
-/**
- 这里为请求成功返回数据后，对特殊数据做的统一特殊处理（如token过期）
- */
-- (void)specialSuccessResultsOnTheReturn:(NSDictionary *)dic{
-    NSNumber *code = dic[@"code"];
-    if([code isEqualToNumber:@(0)]){ //为0是正常数据，其余的是特殊数据（如token过期）
+    /***以下在实际接口下使用
+    if ([result isKindOfClass:[NSDictionary class]] || [result isKindOfClass:[NSMutableDictionary class]]){
+        if (code == 0) { //请求成功返回 DQ_SAFE_BLOCK(requestItem.successBlock,item,YES);
+            
+        }else if (code == 其它){ //这里也是请求成功，如token过期，登录失败等等 DQ_SAFE_BLOCK(requestItem.successBlock,item,NO);
+            
+        }else{
+            
+        }
+    }else if ([result isKindOfClass:[NSArray class]] || [result isKindOfClass:[NSMutableArray class]]){
         
-    }else if ([code isEqualToNumber:@(1)]) {
+    }else{ //其它数据类型如html
         
-    }else if ([code isEqualToNumber:@(2)] || [code isEqualToNumber:@(6)]){
-
-    }else if ([code isEqualToNumber:@(7)]){
-
     }
+     ***/
+
 }
 
 - (void)failureWithError:(NSError *)error forRequestItem:(DQRequestItem *)requestItem
@@ -305,6 +284,7 @@ NSString *const DQ_HTTP_DOMAIN = @"douqu.httpServer.host";
 
 - (void)execureFailureBlockWithError:(NSError *)error forRequest:(DQRequestItem *)requestItem
 {
+    PTTLog(@"请求失败的error = %@",error);
     DQ_SAFE_BLOCK(requestItem.failureBlock,error);
     DQ_SAFE_BLOCK(requestItem.finishedBlcok,nil,error);
     [requestItem cleanCallbackBlocks];
@@ -348,7 +328,9 @@ NSString *const DQ_HTTP_DOMAIN = @"douqu.httpServer.host";
 
 - (NSInteger)getCurrentTimestamp
 {
-    return ((NSInteger)[[NSDate date] timeIntervalSince1970] * 1000);
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval currentTime=[dat timeIntervalSince1970] * 1000;
+    return currentTime;
 }
 
 - (BOOL)checkOutResult:(id)responseObject forRequestItem:(DQRequestItem *)requestItem error:(NSError **)error

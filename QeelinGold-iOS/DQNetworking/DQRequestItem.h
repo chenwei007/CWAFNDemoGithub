@@ -60,13 +60,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  失败后的回调
  */
-@property (nonatomic, copy, readonly, nullable) DQSuccessBlock failureBlock;
+@property (nonatomic, copy, readonly, nullable) DQFailureBlock failureBlock;
 /**
  成功后的回调
  */
-@property (nonatomic, copy, readonly, nullable) DQFailureBlock successBlock;
+@property (nonatomic, copy, readonly, nullable) DQSuccessBlock successBlock;
 /**
- 结束后的回调
+ 结束后的回调 （不论成功或失败都会,如果成功error = nil 如果失败responseObject = nil）
  */
 @property (nonatomic, copy, readonly, nullable) DQFinishedBlock finishedBlcok;
 /**
